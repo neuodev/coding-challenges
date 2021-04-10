@@ -1,3 +1,5 @@
+
+// O(log(n)) time | O(1) for space 
 function bindarySearchItrative(array: number[], target: number) {
   let L = 0;
   let R = array.length - 1;
@@ -14,6 +16,8 @@ function bindarySearchItrative(array: number[], target: number) {
   }
   return -1;
 }
+
+// O(log(n)) time | O(log(n)) for space 
 
 function bindarySearchRecursive(array: number[], target: number) {
   return bindarySearchHelper(array, target, 0, array.length);
