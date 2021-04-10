@@ -1,3 +1,4 @@
+// O(n^2) time | O(1) space 
 function insetionSort(array: number[]) {
   for (let i = 0; i < array.length; i++) {
     let j = i;
