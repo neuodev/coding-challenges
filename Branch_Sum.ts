@@ -1,3 +1,4 @@
+// O(n) time and O(n) space 
 function branchSum(root) {
   let sums = [];
   calcBranchSum(root, 0, sums);
