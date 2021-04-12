@@ -22,15 +22,15 @@ class MinHeap {
   }
 }
 
-// let minHeap = new MinHeap();
-// minHeap.insert(9);
-// minHeap.insert(12);
-// minHeap.insert(23);
-// minHeap.insert(17);
-// minHeap.insert(18);
-// minHeap.insert(30);
-// minHeap.insert(44);
-// minHeap.insert(102);
-// minHeap.insert(31);
-// minHeap.insert(-100);
-// console.log(minHeap.values);
+let minHeap = new MinHeap();
+minHeap.insert(9);
+minHeap.insert(12);
+minHeap.insert(23);
+minHeap.insert(17);
+minHeap.insert(18);
+minHeap.insert(30);
+minHeap.insert(44);
+minHeap.insert(102);
+minHeap.insert(31);
+minHeap.insert(-100);
+console.log(minHeap.values);
