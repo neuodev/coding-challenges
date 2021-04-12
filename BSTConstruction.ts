@@ -113,3 +113,5 @@ bst.insert(14);
 bst.insert(12);
 console.log(bst.delete(1));
 console.log(bst.search(1));
+
+export default BST;
