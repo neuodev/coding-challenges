@@ -14,6 +14,7 @@ bst.insert(22);
 
 preOrder(bst.root);
 inOrder(bst.root);
+postOrder(bst.root);
 function preOrder(root) {
   let array = [];
   preOrderHelper(root, array);
@@ -40,4 +41,18 @@ function inOrderHelper(node, array) {
   inOrderHelper(node.left, array);
   array.push(node.data);
   inOrderHelper(node.right, array);
+}
+
+function postOrder(root) {
+  let array = [];
+  postOrderHelper(root, array);
+  console.log(array);
+  return array;
+}
+
+function postOrderHelper(node, array) {
+  if (!node) return;
+  postOrderHelper(node.left, array);
+  postOrderHelper(node.right, array);
+  array.push(node.data);
 }
