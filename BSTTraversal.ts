@@ -13,7 +13,7 @@ bst.insert(22);
 // bst.insert(12);
 
 preOrder(bst.root);
-
+inOrder(bst.root);
 function preOrder(root) {
   let array = [];
   preOrderHelper(root, array);
@@ -26,4 +26,18 @@ function preOrderHelper(node, array) {
   array.push(node.data);
   preOrderHelper(node.left, array);
   preOrderHelper(node.right, array);
+}
+
+function inOrder(root) {
+  let array = [];
+  inOrderHelper(root, array);
+  console.log(array);
+  return array;
+}
+
+function inOrderHelper(node, array) {
+  if (!node) return;
+  inOrderHelper(node.left, array);
+  array.push(node.data);
+  inOrderHelper(node.right, array);
 }
