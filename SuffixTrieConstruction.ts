@@ -8,3 +8,10 @@ class Char {
     this.isEndOfWord = false;
   }
 }
+
+class Trie {
+  root: Char;
+  constructor() {
+    this.root = new Char(' ');
+  }
+}
