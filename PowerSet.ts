@@ -10,7 +10,7 @@ function getPowerset(array) {
       setLen--;
     }
   }
-  console.log(powerSet);
+  return powerSet;
 }
 
 getPowerset([1, 2, 3]);
