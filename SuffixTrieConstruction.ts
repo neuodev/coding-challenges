@@ -44,3 +44,4 @@ class Trie {
 }
 const trie = new Trie();
 trie.addSuffix('babc');
+trie.contains('babc');
