@@ -27,11 +27,12 @@ class AVLTree {
     } else {
       root.right = this._insert(root.right, val);
     }
-    root.height = 1 + Math.max(this.height(root.left), this.height(root.right));
+    // calc the height
+    root.height = Math.max(this.height(root.left), this.height(root.right)) + 1;
     return root;
   }
 
-  height(node) {
+  private height(node: AVLNode) {
     return node == null ? -1 : node.height;
   }
 
@@ -39,7 +40,7 @@ class AVLTree {
     let array = [];
     function preOrder(node) {
       if (!node) return;
-      array.push(node.value);
+      array.push(`${node.value}-> H:${node.height}`);
       preOrder(node.left);
       preOrder(node.right);
     }
@@ -50,7 +51,7 @@ class AVLTree {
 }
 
 const avlTree = new AVLTree();
-avlTree.insert(20);
 avlTree.insert(10);
+avlTree.insert(20);
 avlTree.insert(30);
 console.log(avlTree.print());
