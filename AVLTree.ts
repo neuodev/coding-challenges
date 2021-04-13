@@ -30,8 +30,7 @@ class AVLTree {
     // calc the height
     root.height = Math.max(this.height(root.left), this.height(root.right)) + 1;
 
-    this.balance(root);
-    return root;
+    return this.balance(root);
   }
 
   private balance(node: AVLNode) {
@@ -44,7 +43,7 @@ class AVLTree {
           `leftRotate(${node.left.value}) -> rightRotate(${node.value})`
         );
       } else {
-        console.log(`rightRotate(${node.left.value})`);
+        return this.rightRotate(node);
       }
     }
 
@@ -54,9 +53,25 @@ class AVLTree {
           `RightRotate(${node.right.value}) -> leftRotate(${node.value})`
         );
       } else {
-        console.log(`leftRotate(${node.right.value})`);
+        return this.leftRotate(node);
       }
     }
+
+    return node;
+  }
+
+  private leftRotate(root: AVLNode) {
+    let newRoot = root.right;
+    root.right = newRoot.left;
+    newRoot.left = root;
+
+    return newRoot;
+  }
+  private rightRotate(root: AVLNode) {
+    let newRoot = root.left;
+    root.left = newRoot.right;
+    newRoot.right = root;
+    return newRoot;
   }
 
   private isLeftHeavy(node: AVLNode) {
@@ -90,6 +105,6 @@ class AVLTree {
 
 const avlTree = new AVLTree();
 avlTree.insert(30);
-avlTree.insert(10);
 avlTree.insert(20);
+avlTree.insert(10);
 console.log(avlTree.print());
