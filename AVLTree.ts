@@ -27,8 +27,12 @@ class AVLTree {
     } else {
       root.right = this._insert(root.right, val);
     }
-
+    root.height = 1 + Math.max(this.height(root.left), this.height(root.right));
     return root;
+  }
+
+  height(node) {
+    return node == null ? -1 : node.height;
   }
 
   print() {
