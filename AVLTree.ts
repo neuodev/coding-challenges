@@ -16,10 +16,6 @@ class AVLTree {
     this.root = null;
   }
 
-  //  10
-  //     20
-  //        30
-
   insert(val: number) {
     this.root = this._insert(this.root, val);
   }
@@ -32,4 +28,23 @@ class AVLTree {
 
     return node;
   }
+
+  print() {
+    let array = [];
+    function preOrder(node) {
+      if (!node) return;
+      array.push(node.value);
+      preOrder(node.left);
+      preOrder(node.right);
+    }
+    preOrder(this.root);
+    console.log(array);
+    return array;
+  }
 }
+
+const avlTree = new AVLTree();
+avlTree.insert(20);
+avlTree.insert(10);
+avlTree.insert(30);
+console.log(avlTree.print());
