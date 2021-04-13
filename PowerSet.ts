@@ -16,3 +16,18 @@ function getPowerset(array) {
 }
 
 getPowerset([1, 2, 3]);
+
+function powerSet(array, idx = null) {
+  if (idx === null) {
+    idx = array.length - 1;
+  } else if (idx < 0) return [[]];
+  let ele = array[idx];
+  let subsets = powerSet(array, idx - 1);
+  for (let i = 0; i < subsets.length; i++) {
+    let numCopy = [...subsets[i], ele];
+    subsets.push(numCopy);
+  }
+  return subsets;
+}
+
+powerSet([1, 2, 3]);
