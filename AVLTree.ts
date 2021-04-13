@@ -20,13 +20,15 @@ class AVLTree {
     this.root = this._insert(this.root, val);
   }
 
-  _insert(node, val) {
-    if (node === null) return new AVLNode(val);
-    if (val < node.val) {
-      node.left = this._insert(node.left, val);
-    } else node.right = this._insert(node.right, val);
+  _insert(root, val) {
+    if (root === null) return new AVLNode(val);
+    if (val < root.val) {
+      root.left = this._insert(root.left, val);
+    } else {
+      root.right = this._insert(root.right, val);
+    }
 
-    return node;
+    return root;
   }
 
   print() {
