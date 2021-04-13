@@ -19,13 +19,10 @@ class AVLTree {
   insert(val: number) {
     this.root = this._insert(this.root, val);
   }
-  // 0 10 2
-  //    0 20 1
-  //      0 30 0
 
-  _insert(root, val) {
+  _insert(root: AVLNode, val: number) {
     if (root === null) return new AVLNode(val);
-    if (val < root.val) {
+    if (val < root.value) {
       root.left = this._insert(root.left, val);
     } else {
       root.right = this._insert(root.right, val);
@@ -33,11 +30,20 @@ class AVLTree {
     // calc the height
     root.height = Math.max(this.height(root.left), this.height(root.right)) + 1;
 
+    this.balance(root);
+    return root;
+  }
+
+  private balance(node: AVLNode) {
     // balanceFactor = height(L) - height(R)
     // >= 1 left heavy
     // <= -1 right heavy
-
-    return root;
+    if (this.isLeftHeavy(node)) {
+      console.log(`${node.value} left Heavy`);
+    }
+    if (this.isRightHeavy(node)) {
+      console.log(`${node.value} right Heavy`);
+    }
   }
 
   private isLeftHeavy(node: AVLNode) {
