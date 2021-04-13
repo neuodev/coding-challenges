@@ -39,13 +39,6 @@ class AVLTree {
     // >= 1 left heavy
     // <= -1 right heavy
     if (this.isLeftHeavy(node)) {
-      //     30
-      //   20 (1)
-      // 10
-
-      //     30
-      //  20  (-1)
-      //     10
       if (this.balanceFactor(node.left) <= 0) {
         console.log(
           `leftRotate(${node.left.value}) -> rightRotate(${node.value})`
@@ -55,9 +48,6 @@ class AVLTree {
       }
     }
 
-    //  10
-    //     30
-    //  20
     if (this.isRightHeavy(node)) {
       if (this.balanceFactor(node.right) >= 0) {
         console.log(
