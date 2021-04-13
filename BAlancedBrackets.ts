@@ -16,3 +16,19 @@ function balancedBrackets(str) {
   return true;
 }
 
+function isValidClosingBracket(bracket, stack) {
+  let lastBracket = stack[stack.length - 1];
+  let bracketIdx = closingBrackets.findIndex(b => b == bracket);
+  if (openingBrackets[bracketIdx] !== lastBracket) return false;
+  stack.pop();
+
+  return true;
+}
+
+function isOpenBracket(bracket) {
+  return openingBrackets.find(b => b == bracket) === bracket;
+}
+
+function isClosingBracket(bracket) {
+  return closingBrackets.find(b => b == bracket) === bracket;
+}
