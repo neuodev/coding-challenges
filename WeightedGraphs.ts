@@ -4,6 +4,10 @@ class Vertix {
     this.label = label;
     this.neighbours = [];
   }
+  addEdge(to: Vertix, weight: number) {
+    let newEdge = new Edge(this, to, weight);
+    this.neighbours.push(newEdge);
+  }
 }
 
 class Edge {
