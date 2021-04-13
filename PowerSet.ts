@@ -1,3 +1,5 @@
+// O(2^N * N) time | O(2^N * N)
+
 function getPowerset(array) {
   let powerSet = [[]];
   if (array.length === 0) return powerSet;
