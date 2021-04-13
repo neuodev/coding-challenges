@@ -39,10 +39,33 @@ class AVLTree {
     // >= 1 left heavy
     // <= -1 right heavy
     if (this.isLeftHeavy(node)) {
-      console.log(`${node.value} left Heavy`);
+      //     30
+      //   20 (1)
+      // 10
+
+      //     30
+      //  20  (-1)
+      //     10
+      if (this.balanceFactor(node.left) <= 0) {
+        console.log(
+          `leftRotate(${node.left.value}) -> rightRotate(${node.value})`
+        );
+      } else {
+        console.log(`rightRotate(${node.left.value})`);
+      }
     }
+
+    //  10
+    //     30
+    //  20
     if (this.isRightHeavy(node)) {
-      console.log(`${node.value} right Heavy`);
+      if (this.balanceFactor(node.right) >= 0) {
+        console.log(
+          `RightRotate(${node.right.value}) -> leftRotate(${node.value})`
+        );
+      } else {
+        console.log(`leftRotate(${node.right.value})`);
+      }
     }
   }
 
@@ -76,7 +99,7 @@ class AVLTree {
 }
 
 const avlTree = new AVLTree();
+avlTree.insert(30);
 avlTree.insert(10);
 avlTree.insert(20);
-avlTree.insert(30);
 console.log(avlTree.print());
