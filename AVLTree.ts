@@ -36,8 +36,14 @@ class AVLTree {
     // balanceFactor = height(L) - height(R)
     // >= 1 left heavy
     // <= -1 right heavy
-    
+
     return root;
+  }
+
+
+
+  private balanceFactor(node: AVLNode) {
+    return node === null ? 0 : this.height(node.left) - this.height(node.right);
   }
 
   private height(node: AVLNode) {
