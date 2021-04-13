@@ -9,3 +9,12 @@ class AVLNode {
     this.height = 0;
   }
 }
+
+class AVLTree {
+  root: AVLNode;
+  constructor() {
+    this.root = null;
+  }
+
+
+}
