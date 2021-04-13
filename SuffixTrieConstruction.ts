@@ -9,6 +9,7 @@ class Char {
   }
 }
 
+// searching  O(M) M: length of the word
 class Trie {
   root: Char;
   constructor() {
