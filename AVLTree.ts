@@ -40,7 +40,12 @@ class AVLTree {
     return root;
   }
 
-
+  private isLeftHeavy(node: AVLNode) {
+    return this.balanceFactor(node) > 1;
+  }
+  private isRightHeavy(node: AVLNode) {
+    return this.balanceFactor(node) < -1;
+  }
 
   private balanceFactor(node: AVLNode) {
     return node === null ? 0 : this.height(node.left) - this.height(node.right);
