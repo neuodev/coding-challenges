@@ -29,6 +29,18 @@ class Trie {
       console.log(current.char);
     }
   }
+
+  contains(word: string) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      let charNode = current.children[char];
+      if (!charNode) return false;
+      current = charNode;
+    }
+    if (!current.isEndOfWord) return false;
+    return true;
+  }
 }
 const trie = new Trie();
 trie.addSuffix('babc');
