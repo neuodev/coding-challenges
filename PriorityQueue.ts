@@ -22,8 +22,27 @@ class PriorityQueue {
       idx = parentIdx;
     }
   }
-  _parent(idx) {
+  _parent(idx: number) {
     return Math.floor((idx - 1) / 2);
+  }
+
+  isEmpty() {
+    return this.values.length === 0;
+  }
+
+  dequeue() {
+    if (this.isEmpty()) return null;
+    if (this.values.length === 1) return this.values.pop();
+    this._swap(0, this.values.length - 1);
+    console.log(this.values);
+    let removed = this.values.pop();
+    return removed;
+  }
+
+  
+
+  _swap(i: number, j: number) {
+    [this.values[i], this.values[j]] = [this.values[j], this.values[i]];
   }
 }
 
@@ -31,5 +50,6 @@ const PQ = new PriorityQueue();
 PQ.enqueue('A', 5);
 PQ.enqueue('B', 1);
 PQ.enqueue('C', -1);
+console.log(PQ.dequeue());
 
 console.log(PQ.values);
