@@ -26,3 +26,10 @@ class PriorityQueue {
     return Math.floor((idx - 1) / 2);
   }
 }
+
+const PQ = new PriorityQueue();
+PQ.enqueue('A', 5);
+PQ.enqueue('B', 1);
+PQ.enqueue('C', -1);
+
+console.log(PQ.values);
