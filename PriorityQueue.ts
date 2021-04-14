@@ -40,10 +40,10 @@ class PriorityQueue {
   }
 
   bubbleDown() {
-    let idx = 1;
-    let ele = this.values[idx];
+    let idx = 0;
     let len = this.values.length;
-    while (idx < this.values.length) {
+    let ele = this.values[idx];
+    while (idx < len) {
       let swapIdx = null;
       if (
         this._leftChildIdx(idx) < len &&
@@ -51,11 +51,16 @@ class PriorityQueue {
       ) {
         swapIdx = this._leftChildIdx(idx);
       }
+      console.log({
+        L: this._leftChildIdx(idx),
+        R: this._rightChildIdx(idx),
+      });
 
       if (
         (swapIdx === null && this._rightChildIdx(idx) < len) ||
         (swapIdx !== null &&
-          this._rightChild(idx).priority < this._leftChildIdx(idx))
+          this._rightChildIdx(idx) < len &&
+          this._rightChild(idx).priority < this._leftChild(idx).priority)
       ) {
         swapIdx = this._rightChildIdx(idx);
       }
@@ -90,6 +95,12 @@ const PQ = new PriorityQueue();
 PQ.enqueue('A', 5);
 PQ.enqueue('B', 1);
 PQ.enqueue('C', -1);
+PQ.enqueue('M', 20);
+PQ.enqueue('S', 60);
+console.log(PQ.dequeue());
+console.log(PQ.dequeue());
+console.log(PQ.dequeue());
+console.log(PQ.dequeue());
 console.log(PQ.dequeue());
 
 console.log(PQ.values);
