@@ -97,10 +97,10 @@ PQ.enqueue('B', 1);
 PQ.enqueue('C', -1);
 PQ.enqueue('M', 20);
 PQ.enqueue('S', 60);
-console.log(PQ.dequeue());
-console.log(PQ.dequeue());
-console.log(PQ.dequeue());
-console.log(PQ.dequeue());
-console.log(PQ.dequeue());
+// console.log(PQ.dequeue());
+// console.log(PQ.dequeue());
+// console.log(PQ.dequeue());
+// console.log(PQ.dequeue());
+// console.log(PQ.dequeue());
 
-console.log(PQ.values);
+// console.log(PQ.values);
