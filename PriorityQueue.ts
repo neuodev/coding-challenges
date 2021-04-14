@@ -34,12 +34,52 @@ class PriorityQueue {
     if (this.isEmpty()) return null;
     if (this.values.length === 1) return this.values.pop();
     this._swap(0, this.values.length - 1);
-    console.log(this.values);
     let removed = this.values.pop();
+    this.bubbleDown();
     return removed;
   }
 
-  
+  bubbleDown() {
+    let idx = 1;
+    let ele = this.values[idx];
+    let len = this.values.length;
+    while (idx < this.values.length) {
+      let swapIdx = null;
+      if (
+        this._leftChildIdx(idx) < len &&
+        this._leftChild(idx).priority < ele.priority
+      ) {
+        swapIdx = this._leftChildIdx(idx);
+      }
+
+      if (
+        (swapIdx === null && this._rightChildIdx(idx) < len) ||
+        (swapIdx !== null &&
+          this._rightChild(idx).priority < this._leftChildIdx(idx))
+      ) {
+        swapIdx = this._rightChildIdx(idx);
+      }
+      if (swapIdx === null) break;
+      this._swap(idx, swapIdx);
+      idx = swapIdx;
+    }
+
+    return this.values;
+  }
+
+  _leftChildIdx(idx: number) {
+    return idx * 2 + 1;
+  }
+  _rightChildIdx(idx: number) {
+    return idx * 2 + 2;
+  }
+
+  _leftChild(idx: number) {
+    return this.values[this._leftChildIdx(idx)];
+  }
+  _rightChild(idx: number) {
+    return this.values[this._rightChildIdx(idx)];
+  }
 
   _swap(i: number, j: number) {
     [this.values[i], this.values[j]] = [this.values[j], this.values[i]];
