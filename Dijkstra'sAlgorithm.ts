@@ -133,6 +133,44 @@ class Graph {
     }
     console.log(output);
   }
+
+  // Dijkstra's Algorithm
+  shortestDistance(from: string, to: string) {
+    let fromNode = this.graph[from];
+    let toNode = this.graph[to];
+    if (!fromNode || !toNode) return;
+
+    let distances = this._initDistance();
+    distances[fromNode.label] = 0;
+    let previousNodes = {};
+    let visited = new Set();
+    let PQ = new PriorityQueue();
+    PQ.enqueue(fromNode.label, 0);
+    while (!PQ.isEmpty()) {
+      let current = this.graph[PQ.dequeue().val];
+      visited.add(current.label);
+      for (let n of current.neighbours) {
+        if (visited.has(n.to.label)) continue;
+        let newDistance = distances[current.label] + n.weight;
+
+        if (newDistance < distances[n.to.label]) {
+          distances[n.to.label] = newDistance;
+          previousNodes[n.to.label] = current.label;
+          PQ.enqueue(n.to.label, n.weigh);
+        }
+      }
+    }
+
+    return distances[to];
+  }
+
+  _initDistance() {
+    let distances = {};
+    for (let n in this.graph) {
+      distances[n] = Infinity;
+    }
+    return distances;
+  }
 }
 
 const graph = new Graph();
@@ -148,3 +186,10 @@ graph.addEdge('B', 'E', 1);
 graph.addEdge('B', 'D', 6);
 graph.addEdge('D', 'E', 5);
 graph.addEdge('D', 'C', 1);
+graph.print();
+graph.shortestDistance('A', 'E');
+
+// let PQ = new PriorityQueue();
+// PQ.enqueue('B', 3);
+// PQ.enqueue('C', 4);
+// PQ.enqueue('D', 2);
