@@ -124,26 +124,19 @@ class LinkedList {
     }
     return array;
   }
-
   reverse() {
-    if (this.head === null || this.tail === null) {
-      return this;
-    }
-
-    let temp = this.head.next;
+    if (this.head === null) return this.head;
+    let current = this.head.next;
     let prev = this.head;
     this.head = this.tail;
     this.tail = prev;
     this.tail.next = null;
-    console.log(temp, prev, this.head, this.tail);
-    while (temp) {
-      let next = temp.next;
-      temp.next = prev;
-      prev = temp;
-      temp = next;
+    while (current) {
+      const next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
     }
-
-    return this;
   }
 }
 
