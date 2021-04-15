@@ -124,11 +124,39 @@ class LinkedList {
     }
     return array;
   }
+
+  reverse(m, n) {
+    let current = this.head;
+    let prev = null;
+    while (m > 1) {
+      prev = current;
+      current = current.next;
+      m--;
+      n--;
+    }
+    let connection = prev;
+    let tail = current;
+    while (n > 0) {
+      let next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+      n--;
+    }
+
+    if (connection !== null) {
+      connection.next = prev;
+    }
+
+    tail.next = current;
+  }
 }
 
 var LL = new LinkedList();
-LL.addLast(0);
 LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
+LL.addLast(5);
+
+LL.reverse(2, 4);
