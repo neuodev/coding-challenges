@@ -1,4 +1,5 @@
 function substring(string: string) {
+  if (string.length <= 1) return string.length;
   const set = new Set();
   let longest = 0;
   for (let i = 0; i < string.length; i++) {
@@ -10,6 +11,6 @@ function substring(string: string) {
     longest = set.size > longest ? set.size : longest;
     set.clear();
   }
-  console.log(longest);
+  return longest;
 }
 substring('abcbda');
