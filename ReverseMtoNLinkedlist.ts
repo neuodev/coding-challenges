@@ -124,20 +124,6 @@ class LinkedList {
     }
     return array;
   }
-  reverse() {
-    if (this.head === null) return this.head;
-    let current = this.head.next;
-    let prev = this.head;
-    this.head = this.tail;
-    this.tail = prev;
-    this.tail.next = null;
-    while (current) {
-      const next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
-    }
-  }
 }
 
 var LL = new LinkedList();
@@ -146,4 +132,3 @@ LL.addLast(1);
 LL.addLast(2);
 LL.addLast(3);
 LL.addLast(4);
-console.log(LL.reverse());
