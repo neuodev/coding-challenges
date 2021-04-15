@@ -2,9 +2,11 @@ class Queue {
   in = [];
   out = [];
   enqueue(value: number) {
+    // time : O(1)
     this.in.push(value);
   }
   dequeue() {
+    // time O(n)
     if (this.out.length === 0) {
       while (this.in.length !== 0) {
         this.out.push(this.in.pop());
