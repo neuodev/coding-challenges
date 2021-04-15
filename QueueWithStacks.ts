@@ -1,27 +1,31 @@
 class Queue {
-  queue = [];
-  s1 = [];
-  s2 = [];
-
+  in = [];
+  out = [];
   enqueue(value: number) {
-    this.queue.push(value);
-    this.s1.push(value);
+    this.in.push(value);
   }
   dequeue() {
-    if (this.s2.length === 0) {
-      while (this.s1.length !== 0) {
-        this.s2.push(this.s1.pop());
+    if (this.out.length === 0) {
+      while (this.in.length !== 0) {
+        this.out.push(this.in.pop());
       }
     }
-    return this.s2.pop();
+
+    return this.out.pop();
   }
 
   isEmpty() {
-    return this.s1.length === 0 && this.s2.length === 0;
+    return this.in.length === 0 && this.out.length === 0;
   }
 
   peek() {
-    return this.queue[0];
+    if (this.out.length === 0) {
+      while (this.in.length !== 0) {
+        this.out.push(this.in.pop());
+      }
+    }
+
+    return this.out[this.out.length - 1];
   }
 }
 
