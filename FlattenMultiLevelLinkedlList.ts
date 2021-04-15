@@ -5,6 +5,7 @@ type ListNode = {
   child: ListNode;
 };
 
+// O(1) space | O(n) time
 function flattenLinkedList(head: ListNode) {
   if (head == null) return head;
   let current = head;
