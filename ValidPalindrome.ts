@@ -1,10 +1,5 @@
 function isPalindrome(string: string) {
-  let newString = '';
-  for (const char of string.toLocaleLowerCase()) {
-    if (char.charCodeAt(0) > 122 || char.charCodeAt(0) < 97 || char == ' ')
-      continue;
-    newString += char;
-  }
+  let newString = string.toLocaleLowerCase().replace(/[^A-Za-z0-9]/g, '');
   let left = 0,
     right = newString.length - 1;
   while (left < right) {
@@ -15,5 +10,5 @@ function isPalindrome(string: string) {
   return true;
 }
 
-// console.log(isPalindrome('A man, a plan, a canal: Panama'));
-console.log(isPalindrome('aba'));
+console.log(isPalindrome('A man, a plan, a canal: Panama'));
+// console.log(isPalindrome('aba'));
