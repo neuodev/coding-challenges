@@ -11,8 +11,8 @@ function traverse(root: TreeNode) {
   while (queue.length) {
     let currentNode = queue.shift();
     res.push(currentNode);
-    queue.push(currentNode.left);
-    queue.push(currentNode.right);
+    if (currentNode.left) queue.push(currentNode.left);
+    if (currentNode.right) queue.push(currentNode.right);
   }
 
   return res;
