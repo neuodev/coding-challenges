@@ -4,6 +4,7 @@ type TreeNode = {
   left: TreeNode;
 };
 
+// time O(n) | space : O(log (n)) -> avarage | space : O(n)
 function maxDepth(root: TreeNode): number {
   return _DepthFirstSearch(root);
 }
