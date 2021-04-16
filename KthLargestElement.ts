@@ -8,4 +8,6 @@ function kthLargestElement(array: number[], target: number): number {
 
 console.log(kthLargestElement([2, 3, 1, 2, 4, 2], 4));
 console.log(kthLargestElement([5, 3, 1, 6, 4, 2], 2));
+console.log(kthLargestElement([5] , 1));
+console.log(kthLargestElement([] , 1));
 // [1,2,2,2,3,4]
