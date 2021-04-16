@@ -1,3 +1,4 @@
+// O(log n) time | O(1) space 
 function XYRange(array: number[], target: number) {
   if (array.length === 0) return -1;
   let numIdx = binarySearch(array, target, 0, array.length - 1);
