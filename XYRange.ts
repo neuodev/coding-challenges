@@ -34,4 +34,5 @@ function binarySearch(array: number[], target: number, L: number, R: number) {
   return -1;
 }
 
+
 console.log(XYRange([1, 3, 3, 5, 5, 5, 8, 9], 5));
