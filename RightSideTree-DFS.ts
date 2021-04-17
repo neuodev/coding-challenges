@@ -13,7 +13,7 @@ function rightView(root: TreeNode) {
 
 function perOrder(root: TreeNode, level: number, res: number[]) {
   if (!root) return;
-  perOrder(root.right, level++, res);
-  perOrder(root.left, level++, res);
   if (level >= length) res.push(root.val);
+  perOrder(root.right, level + 1, res);
+  perOrder(root.left, level + 1, res);
 }
