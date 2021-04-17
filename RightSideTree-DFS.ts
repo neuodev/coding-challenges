@@ -3,7 +3,7 @@ type TreeNode = {
   right: TreeNode;
   left: TreeNode;
 };
-
+// time O(n) worse case ||  space O(h) h:height 
 function rightView(root: TreeNode) {
   let res = [];
   let level = 0;
