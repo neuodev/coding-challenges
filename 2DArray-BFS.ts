@@ -1,3 +1,4 @@
+// space O(n) | time O(N)
 function traverse(matrix: number[][]) {
   const visited = new Array(matrix.length).fill(
     new Array(matrix[0].length).fill(false)
