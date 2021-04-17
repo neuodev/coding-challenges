@@ -11,7 +11,7 @@ bst.insert(22);
 bst.insert(14);
 bst.insert(12);
 
-function validateBST(root, parent = null, type) {
+function validateBST(root, parent = null, type = null) {
   if (!root) return;
 
   if (type == 'left' && root.data > parent.data) {
