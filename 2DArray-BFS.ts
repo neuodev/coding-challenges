@@ -6,7 +6,14 @@ function traverse(matrix: number[][]) {
   let queue = [[0, 0]];
   while (queue.length) {
     let [row, col] = queue.shift();
-    if (visited[row][col]) continue;
+    if (
+      row < 0 ||
+      col < 0 ||
+      row >= matrix.length ||
+      col >= matrix[row].length ||
+      visited[row][col]
+    )
+      continue;
 
     res.push(matrix[row][col]);
     visited[row][col] = true;
