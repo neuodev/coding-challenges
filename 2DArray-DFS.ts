@@ -1,25 +1,28 @@
 function Traverse(matrix: number[][]) {
-  let visited = new Set();
-  DFS(visited, matrix, 0, 0);
+  let visited = new Array(matrix.length).fill(
+    new Array(matrix[0].length).fill(false)
+  );
+  let res = [];
+  DFS(visited, res, matrix, 0, 0);
   console.log(visited);
-  return visited;
+  return res;
 }
 
-function DFS(visited, grid, i, j) {
+function DFS(grid, i, j, visited, res) {
   if (
     i < 0 ||
     j < 0 ||
     i >= grid.length ||
     j >= grid[i].length ||
-    visited.has(grid[i][j])
+    visited[i][j] === true
   )
     return;
-
-  visited.add(grid[i][j]);
-  DFS(visited, grid, i - 1, j); // up
-  DFS(visited, grid, i, j + 1); // right
-  DFS(visited, grid, i + 1, j); // bottom
-  DFS(visited, grid, i, j - 1); // left
+  res.push(grid[i][j]);
+  visited[i][j] = true;
+  DFS(grid, i - 1, j, visited, res); // up
+  DFS(grid, i, j + 1, visited, res); // right
+  DFS(grid, i + 1, j, visited, res); // bottom
+  DFS(grid, i, j - 1, visited, res); // left
 }
 
 function buildMatrix(row: number, col: number) {
