@@ -23,10 +23,10 @@ function traverse(matrix: number[][]) {
     let bottom = [row + 1, col];
     let left = [row, col - 1];
 
-    if (matrix[row - 1][col]) queue.push(up);
-    if (matrix[row][col + 1]) queue.push(right);
-    if (matrix[row + 1][col]) queue.push(bottom);
-    if (matrix[row][col - 1]) queue.push(left);
+    queue.push(up);
+    queue.push(right);
+    queue.push(bottom);
+    queue.push(left);
   }
 
   return res;
